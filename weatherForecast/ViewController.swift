@@ -10,8 +10,6 @@ import UIKit
 
 class ViewController: UIViewController,UITextFieldDelegate {
 
-    
-    
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var resultLabel: UILabel!
     
@@ -20,7 +18,12 @@ class ViewController: UIViewController,UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         cityLabel.text = cityTextField.text
         cityTextField.resignFirstResponder()
+
         return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     @IBAction func findWeather(_ sender: Any) {
